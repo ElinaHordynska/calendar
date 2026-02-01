@@ -1,0 +1,7 @@
+@use "../../styles/base/colors" as c;
+
+.footer {
+    background-color: c.$primary-100;
+    text-align: center;
+    padding: 0.5rem;
+}
