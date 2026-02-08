@@ -31,4 +31,9 @@
             font-size: 1.5rem;
         }
     }
+
+    & a.active {
+        color: c.$accent-100;
+        text-decoration: none;
+    }
 }

@@ -15,10 +15,10 @@ function Header(props) {
             <h3>RoboCalendar</h3>
         </div>
         <nav>
-            <NavLink to="/" className={style.link}>Main</NavLink>
-            <NavLink to="/" className={style.link}><IoCalendar />Month</NavLink>
-            <NavLink to="/week" className={style.link}><FaCalendarAlt/>Week</NavLink>
-            <NavLink to="/day" className={style.link}><FaCalendarDay/>Day</NavLink>
+            <NavLink to="/" className={({isActive})=> isActive ? style.active : style.link}>Main</NavLink>
+            <NavLink to="/" className={({isActive})=> isActive ? style.active : style.link}><IoCalendar />Month</NavLink>
+            <NavLink to="/week" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarAlt/>Week</NavLink>
+            <NavLink to="/day" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarDay/>Day</NavLink>
 
         </nav>
     </header>

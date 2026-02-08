@@ -12,3 +12,20 @@ export const getCalendarDates = (year, month) => {
     }
     return dates
 }
+
+export const getCalendarDatesInWeek = (year, month, currentDate) => {
+    let startWeek = new Date(year, month, currentDate.getDate() - 7 
+    - currentDate.getDay() + 2)
+
+    const dates = []
+    for(let i = 0; i < 7; i++ ){
+        const date = new Date(year, month, i + startWeek.getDate());
+        dates.push(date)
+    }
+    return dates
+}
+
+export const getMinutes = (time) => {
+    const [ hour, minutes ] = time.split(":").map(Number)
+    return hour * 60 + minutes
+}

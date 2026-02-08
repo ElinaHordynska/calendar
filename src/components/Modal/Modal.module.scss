@@ -1,0 +1,37 @@
+@use "../../styles/base/colors" as c;
+
+.wrapper {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+
+    backdrop-filter: blur(5px);
+
+    & .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        background-color: c.$bg-200;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.3);
+        & section {
+            display: flex;
+            flex-direction: column;
+        }
+        position: relative;
+        & .closeButton {
+            position: absolute;
+            top: 0.2rem;
+            right: 0.2rem;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    }
+    .error {
+        color: red;
+    }
+}
