@@ -5,9 +5,17 @@ import { IoCalendar } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaCalendarDay } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeToken } from "../../store/AuthReducer"
 
 
 function Header(props) {
+  let isAuth = useSelector(state=>state.auth.token) != null;
+  let dispatch = useDispatch()
+  let logout = () =>{
+    dispatchEvent(removeToken())
+  }
+
   return (
     <header className={style.wrapper}>
         <div className={style.iconBar}>
@@ -19,7 +27,16 @@ function Header(props) {
             <NavLink to="/" className={({isActive})=> isActive ? style.active : style.link}><IoCalendar />Month</NavLink>
             <NavLink to="/week" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarAlt/>Week</NavLink>
             <NavLink to="/day" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarDay/>Day</NavLink>
-
+            {
+              isAuth ? (
+                <>
+                  <NavLink to="/login" className={({isActive})=> isActive ? style.active : style.link}>Login</NavLink>
+                  <NavLink to="/register" className={({isActive})=> isActive ? style.active : style.link}>Register</NavLink>
+                </>
+              ):(
+                <NavLink onclick={logout}>Log Out</NavLink>
+              )
+            }
         </nav>
     </header>
   )

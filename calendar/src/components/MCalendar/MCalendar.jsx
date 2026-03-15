@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import style from "./MCalendar.module.scss"
 import { getCalendarDates } from '../../utils/calendar';
 import {ContextStore} from "../../store/ContextStore"
+import { useSelector } from "react-redux"
 
 
 export default function MCalendar(props) {
@@ -11,9 +12,8 @@ export default function MCalendar(props) {
     const month = currentDate.getMonth();
     const dates = getCalendarDates(year, month)
 
-    let {events} = useContext(ContextStore)
-    console.log(events)
-
+    let events = useSelector(state=>state.events.events)
+    
   return (
     <div className={style.wrapper}>
         <div className={style.container}>
