@@ -2,13 +2,13 @@ import React, { useState, useContext } from 'react'
 import style from "./DCalendar.module.scss"
 import { getCalendarDatesInWeek, getMinutes } from '../../utils/calendar';
 import { ContextStore } from "../../store/ContextStore"
-import { useselector } from "react-redux"
+import { useSelector } from "react-redux"
 
 
 export default function DCalendar(props) {
     const [currentDate, setCurrentDate] = useState(new Date())
 
-    let events = useselector(state => state.events.events)
+    let events = useSelector(state => state.events.events)
 
     return (
         <div className={style.wrapper}>

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import style from "./WCalendar.module.scss"
 import { getCalendarDatesInWeek, getMinutes } from '../../utils/calendar';
 import { ContextStore } from "../../store/ContextStore"
-import { useSelector, useselector } from "react-redux"
+import { useSelector } from "react-redux"
 
 
 export default function WCalendar(props) {

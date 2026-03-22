@@ -4,14 +4,17 @@ import { IoIosClose } from "react-icons/io";
 import { ContextStore } from "../../store/ContextStore";
 import { useForm } from "react-hook-form";
 
+import { useDispatch } from "react-redux"
+import { addEvent } from "../../store/EventsReducer";
+
 export default function Modal(props) {
-    let { addEvent } = useContext(ContextStore)
+    let dispatch = useDispatch()
 
     let { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     const submit = (data) => {
         console.log(data)
-        addEvent(data)
+        dispatch(addEvent(data))
         props.open(false)
         reset()
     }
@@ -93,7 +96,7 @@ export default function Modal(props) {
                             {errors.title?.message}
                             {errors.date?.message}
                             {errors.time?.message}
-                            </span>
+                        </span>
                     )}
                 </section>
                 <button type="submit" disabled={errors.title || errors.date || errors.time}>Додати подію</button>
