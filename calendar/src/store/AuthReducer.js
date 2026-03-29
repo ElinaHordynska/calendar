@@ -68,7 +68,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (data, { rejec
     }
 })
 
-export const registerUser = createAsyncThunk("auth/registerUser", async (data, { rejectWithValue })=> {
+export const registerUser = createAsyncThunk("auth/registerUser", async (data, { rejectWithValue, dispatch })=> {
     try {
         const response = await fetch("http://localhost:3000/register", {
             method: "POST",

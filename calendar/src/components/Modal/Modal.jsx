@@ -5,7 +5,7 @@ import { ContextStore } from "../../store/ContextStore";
 import { useForm } from "react-hook-form";
 
 import { useDispatch } from "react-redux"
-import { addEvent } from "../../store/EventsReducer";
+import { addNewEvent } from "../../store/EventsReducer";
 
 export default function Modal(props) {
     let dispatch = useDispatch()
@@ -14,7 +14,7 @@ export default function Modal(props) {
 
     const submit = (data) => {
         console.log(data)
-        dispatch(addEvent(data))
+        dispatch(addNewEvent(data))
         props.open(false)
         reset()
     }

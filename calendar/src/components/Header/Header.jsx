@@ -13,7 +13,7 @@ function Header(props) {
   let isAuth = useSelector(state=>state.auth.token) != null;
   let dispatch = useDispatch()
   let logout = () =>{
-    dispatchEvent(removeToken())
+    dispatch(removeToken())
   }
 
   return (
@@ -28,13 +28,13 @@ function Header(props) {
             <NavLink to="/week" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarAlt/>Week</NavLink>
             <NavLink to="/day" className={({isActive})=> isActive ? style.active : style.link}><FaCalendarDay/>Day</NavLink>
             {
-              isAuth ? (
+              !isAuth ? (
                 <>
                   <NavLink to="/login" className={({isActive})=> isActive ? style.active : style.link}>Login</NavLink>
                   <NavLink to="/register" className={({isActive})=> isActive ? style.active : style.link}>Register</NavLink>
                 </>
               ):(
-                <NavLink onclick={logout}>Log Out</NavLink>
+                <NavLink onClick={logout}>Log Out</NavLink>
               )
             }
         </nav>
